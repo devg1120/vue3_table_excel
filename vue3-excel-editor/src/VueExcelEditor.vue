@@ -145,13 +145,11 @@
 
 		  <Rte_bubble  />
 		  <Rte_snow  />
+		  <Rte_snow2  />
 		  -->
-		  <Rte_bubble  />
 		  
+		  <Rte_snow2  />
 		      
-		  <!--
-		      <Tiptap2 />
-		  -->
 		  </template>
 		  
                   <template v-else>{{ item.toText(record[item.name], record, item, p) }}</template>

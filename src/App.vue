@@ -5,6 +5,7 @@ import  Table1  from './components/Table1.vue';
 
 import  Rte_bubble from './Rte_bubble.vue';
 import  Rte_snow from './Rte_snow.vue';
+import  Rte_snow2 from './Rte_snow2.vue';
 
 //import  Tiptap from './Tiptap.vue';
 //import  Tiptap2 from './Tiptap2.vue';
@@ -285,6 +286,8 @@ function setStyle() {
     <hr>
     <p>Rte snow</p>
     <Rte_snow /> 
+    <p>Rte snow2</p>
+    <Rte_snow2 /> 
     <p>Rte bubble</p>
     <Rte_bubble /> 
     <!--<Rte /> -->

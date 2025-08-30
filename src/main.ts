@@ -5,6 +5,7 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 //import  Rte  from './Rte.vue'
 import  Rte_bubble  from './Rte_bubble.vue'
 import  Rte_snow  from './Rte_snow.vue'
+import  Rte_snow2  from './Rte_snow2.vue'
 
 //import  RteEditor  from './RteEditor.vue'
 //import  RteToolbar  from './RteToolbar.vue'
@@ -23,6 +24,7 @@ app.component('QuillEditor', QuillEditor)
 //app.component('Rte', Rte)
 app.component('Rte_bubble', Rte_bubble)
 app.component('Rte_snow', Rte_snow)
+app.component('Rte_snow2', Rte_snow2)
 
 //app.component('RteEditor', RteEditor)
 //app.component('Tiptap', Tiptap)

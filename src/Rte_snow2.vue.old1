@@ -18,6 +18,10 @@ let toolbar_sid = "#" + toolbar_id;
 
 
 const qeditor  = useTemplateRef('qeditor')
+onMounted(() => {
+qeditor.value.getToolbar().classList.add("ql-dynamic-toolbar");
+});
+
 //const qeditor  = ref();
 let isFocus = ref(false);
 
@@ -89,73 +93,18 @@ function toolbar_close() {
 <!--
   <QuillEditor theme="bubble"   toolbar="full" />
 <Teleport to="#app">
+  <QuillEditor theme="snow" ref="qeditor" :class="classObject"  toolbar="full"  v-bind:id="editor_id" 
 -->
 
+  <QuillEditor theme="snow" ref="qeditor"  toolbar="full"   v-bind:id="editor_id" 
+         @dblclick="handleMouseEnter" 
+         @mouseleave="handleMouseLeave" 
+  >
+  </QuillEditor>
 <!--
   <QuillEditor theme="snow"  v-bind:id="editor_id" v-bind:toolbar="toolbar_sid" ></QuillEditor>
 -->
 
-  <div class="quill_toolbar" v-bind:id="toolbar_id">
-    <button class="ql-bold"></button>
-    <button class="ql-underline"></button>
-
-    <button class="ql-link"></button>
-    <button class="ql-image"></button>
-
-
-    <button class="ql-list" value="bullet"></button>
-    <button class="ql-list" value="check"></button>
-
-
-    <button class="ql-indent" value="-1"></button>
-    <button class="ql-indent" value="+1"></button>
-
-
-  <select class="ql-color">
-     <option value="#000000"></option>      
-     <option selected></option>
-     <option value="#808080"></option>     
-     <option value="#DCDCDC"></option>    
-     <option value="#FFFFFF"></option>    
-     <option value="#0000FF"></option>    
-     <option value="#2C7CFF"></option>    
-     <option value="#008088"></option>    
-     <option value="#30F9B2"></option>   
-     <option value="#87CEFA"></option>  
-     <option value="#00FFFF"></option>  
-     <option value="#FFFF00"></option>  
-     <option value="#FF0000"></option>  
-     <option value="#FF00FF"></option>  
-     <option value="#808000"></option>  
-     <option value="#800080"></option>  
-     <option value="orange"></option>  
-  </select>
-
-
-  <select class="ql-background">
-     <option value="#000000"></option>   
-     <option value="#808080"></option>   
-     <option value="#DCDCDC"></option>   
-     <option value="#FFFFFF"></option>   
-     <option selected></option>
-     <option value="#0000FF"></option>   
-     <option value="#2C7CFF"></option>   
-     <option value="#008088"></option>   
-     <option value="#30F9B2"></option>   
-     <option value="#87CEFA"></option>   
-     <option value="#00FFFF"></option>   
-     <option value="#FFFF00"></option>   
-     <option value="#FF0000"></option>   
-     <option value="#FF00FF"></option>   
-     <option value="#808000"></option>   
-     <option value="#800080"></option>   
-     <option value="orange"></option>   
-  </select>
-
-
-   <button id="custom-button" @click="toolbar_close" >Close</button>
-
-  </div>
   <!--
   <QuillEditor theme="snow" class="toolbar-show"  v-bind:id="editor_id" v-bind:toolbar="toolbar_sid" ></QuillEditor>
   <QuillEditor theme="snow" class="toolbar-hidden"  v-bind:id="editor_id" v-bind:toolbar="toolbar_sid" ></QuillEditor>
@@ -167,10 +116,6 @@ function toolbar_close() {
          @mouseenter="handleMouseEnter" 
          @mouseleave="handleMouseLeave" 
   -->
-  <QuillEditor ref="qeditor" theme="snow"  :class="classObject" v-bind:id="editor_id" v-bind:toolbar="toolbar_sid" 
-         @focus="handleMouseEnter" 
-
-  ></QuillEditor>
 
 </template>
 <style >
@@ -214,9 +159,10 @@ table td .ql-snow.ql-toolbar button, .ql-snow .ql-toolbar button {
 }
 
 
-table td .ql-snow.ql-toolbar {
-  padding:0px;
-  margin-left: -10px;
+.ql-snow.ql-toolbar.ql-dynamic-toolbar {
+ display:none;
+}
+.ql-snow .ql-tooltip {
  display:none;
 }
 
