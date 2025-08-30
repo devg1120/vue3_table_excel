@@ -6,8 +6,8 @@ import  Table1  from './components/Table1.vue';
 import  Rte_bubble from './Rte_bubble.vue';
 import  Rte_snow from './Rte_snow.vue';
 
-import  Tiptap from './Tiptap.vue';
-import  Tiptap2 from './Tiptap2.vue';
+//import  Tiptap from './Tiptap.vue';
+//import  Tiptap2 from './Tiptap2.vue';
 
 const grid  = null;
 

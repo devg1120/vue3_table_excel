@@ -8,8 +8,8 @@ import  Rte_snow  from './Rte_snow.vue'
 
 //import  RteEditor  from './RteEditor.vue'
 //import  RteToolbar  from './RteToolbar.vue'
-import  Tiptap  from './Tiptap.vue'
-import  Tiptap2  from './Tiptap2.vue'
+//import  Tiptap  from './Tiptap.vue'
+//import  Tiptap2  from './Tiptap2.vue'
 
 import VueExcelEditor from '../vue3-excel-editor'
 
@@ -25,8 +25,8 @@ app.component('Rte_bubble', Rte_bubble)
 app.component('Rte_snow', Rte_snow)
 
 //app.component('RteEditor', RteEditor)
-app.component('Tiptap', Tiptap)
-app.component('Tiptap2', Tiptap2)
+//app.component('Tiptap', Tiptap)
+//app.component('Tiptap2', Tiptap2)
 
 app.config.globalProperties.$greet = () => console.log('Hello World!')
 app.config.globalProperties.$myFunc = function() {
