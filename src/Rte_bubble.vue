@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import { ref, computed, useTemplateRef, onMounted } from 'vue'
 
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import '@vueup/vue-quill/dist/vue-quill.bubble.css';
+
+const qeditor  = useTemplateRef('qeditor')
 
 
 let S = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -52,20 +55,26 @@ let toolbar_option2 =  [
   ['clean']
 ];
 
-function get_fonts() {
-   let el = document.getElementById("q-editor");
-   let cssv = getComputedStyle(el,'').fontFamily;
-   console.log(cssv);
+const content = ref("<h3> test index </h3>");
+
+function get_html() {
+   let html = qeditor.value.getHTML();
+   console.log(html);
 
 }
 
+function get_content() {
+   console.log(content);
+
+}
 
 
 </script>
 
 <template>
 
-<QuillEditor theme="bubble"  v-bind:id="editor_id" v-bind:toolbar="toolbar_sid" ></QuillEditor>
+<QuillEditor ref="qeditor"  theme="bubble"  v-model:content="content"  contentType="html"
+                  v-bind:id="editor_id" v-bind:toolbar="toolbar_sid" ></QuillEditor>
   <div class="quill_toolbar ql-toolber" v-bind:id="toolbar_id">
     <button class="ql-bold"></button>
     <button class="ql-italic"></button>
@@ -74,6 +83,9 @@ function get_fonts() {
 
     <button class="ql-link"></button>
     <button class="ql-image"></button>
+
+    <button class="ql-header" value="1"></button>
+    <button class="ql-header" value="2"></button>
 
     <button class="ql-list" value="ordered"></button>
     <button class="ql-list" value="bullet"></button>
@@ -209,7 +221,8 @@ function get_fonts() {
     <option value="serif"></option>
   </select>
 
-   <button id="custom-button" @click="get_html" >html</button>
+   <button class="custom-button" @click="get_html" >html</button>
+   <button class="custom-button" @click="get_content" >content</button>
 
   </div>
 
@@ -222,7 +235,7 @@ table td .ql-bubble .ql-tooltip{
    border-radius: 6px;
 }
 
-table td .ql-bubble #custom-button {
+table td .ql-bubble .custom-button {
    color: #ffffff;
 }
 
